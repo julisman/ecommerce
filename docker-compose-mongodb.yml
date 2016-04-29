@@ -1,6 +1,5 @@
 mongodb:
-  container_name: mongodb
-  #command: --auth
+  container_name: mongodbec
   volumes:
     - ./db:/data/db
   image: mongo:3.2

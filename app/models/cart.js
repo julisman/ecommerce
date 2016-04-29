@@ -5,13 +5,10 @@ var mongoose = require('mongoose');
 // define the schema for our user model
 var cartSchema = mongoose.Schema({
 
-    status:String,
-
+    status: { type: String, default: 'active' },
     quantity: Number,
     total: Number,
-
     products: [],
-
     created_at: { type: Date, default: Date.now }
 
 });

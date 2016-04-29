@@ -21,39 +21,16 @@ describe('Product', function() {
     /*drop product collection first*/
     Product.collection.drop();
 
-    beforeEach(function(done){
-        var newProduct = new Product({
-            sku: '01229822',
-            title: 'nike',
-            description: 'Sepatu terbaik',
-
-            manufacture_details: {
-                model_number: 'A002',
-                release_date: Date.now
-            },
-
-            shipping_details: {
-                weight: 1,
-                width: 1,
-                height: 1,
-                depth: 1
-            },
-
-            quantity: 1,
-
-            pricing: {
-                price: 1000
-            }
-        });
-        newProduct.save(function(err) {
-            done();
-        });
-    });
-
-    afterEach(function(done){
-        /*clean product collection */
-        Product.collection.drop();
-        done();
+    it('should add a SINGLE product without body /cart POST', function(done) {
+        chai.request(server)
+            .post('/cart')
+            .send()
+            .end(function(err, res){
+                res.should.have.status(400);
+                res.should.be.json;
+                res.body.should.be.a('object');
+                done();
+            });
     });
 
     it('should add a SINGLE product on /product POST', function(done) {
@@ -86,6 +63,8 @@ describe('Product', function() {
                 res.should.have.status(200);
                 res.should.be.json;
                 res.body.should.be.a('object');
+                res.body.should.have.property('doc');
+                res.body.doc.should.have.property('_id');
                 done();
             });
     });

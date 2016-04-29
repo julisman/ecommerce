@@ -27,6 +27,15 @@ module.exports = function(app) {
 
         })
         .post(function(req, res){
+            if(!_.isEmpty(req.body)){
+                var carts = new Cart(req.body);
+                carts.save(function(err, doc) {
+                if (err)  res.status(500).send({ message: err.message });
+                res.send({ message: 'success' ,doc : doc });
+                });
+            }else{
+                res.status(400).send({ message: 'body is empty' });
+            }
 
         })
 }

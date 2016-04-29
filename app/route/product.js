@@ -32,12 +32,15 @@ module.exports = function(app) {
 
         })
         .post(function(req, res){
-
-            var products = new Product(req.body);
-            products.save(function(err, doc) {
-                if (err)  res.status(500).send({ message: err.message });
-                res.send({ message: 'success' ,doc : doc });
-            });
+            if(!_.isEmpty(req.body)){
+                var products = new Product(req.body);
+                products.save(function(err, doc) {
+                    if (err)  res.status(500).send({ message: err.message });
+                    res.send({ message: 'success' ,doc : doc });
+                });
+            }else{
+                res.status(400).send({ message: 'body is empty' });
+            }
         })
 
 

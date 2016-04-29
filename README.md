@@ -3,7 +3,7 @@
 
 # HOW TO RUN ?
   * copy .env-DIST to .env
-  * set .env
+  * set mongodb host on .env
   * make sure node js has been installed
   * npm install
   * NODE_ENV=production node app.js

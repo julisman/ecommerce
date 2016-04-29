@@ -10,7 +10,7 @@
   * use docker ?
     * docker-compose -f docker-compose-devel.yml up (for development)
     * docker-compose -f docker-compose-production.yml up (for production)
-    * enter to bash docker exec -it nodejs bash
+    * enter to bash docker exec -it ecommerce bash
     * npm install
     * pm2 restart all
 

@@ -5,6 +5,6 @@ api:
   command : pm2 start app.js --no-daemon -i max --max-memory-restart 3G --merge-logs --log-date-format="YYYY-MM-DD HH:mm Z"
   restart: always
   ports:
-    - "8084:8084"
+    - "8085:8085"
   volumes:
     - .:/app

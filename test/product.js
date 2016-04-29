@@ -3,7 +3,7 @@
  * */
 
 // set env 'tes't to use document product test
-process.env.NODE_ENV = 'tes';
+process.env.NODE_ENV = 'test';
 
 var chai = require('chai');
 var chaiHttp = require('chai-http');

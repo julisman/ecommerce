@@ -51,7 +51,8 @@ describe('Product', function() {
     });
 
     afterEach(function(done){
-      //  Product.collection.drop();
+        /*clean product collection */
+        Product.collection.drop();
         done();
     });
 

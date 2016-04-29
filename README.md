@@ -4,11 +4,16 @@
 # HOW TO RUN ?
   * make sure node js has been installed
   * npm install
+  * NODE_ENV=production node app.js
   * use docker ?
     * docker-compose -f docker-compose-devel.yml up (for development)
     * docker-compose -f docker-compose-production.yml up (for production)
-  * wihout dokcer ?
-    * NODE_ENV=production nodemon app.js
+    * enter to bash docker exec -it nodejs bash
+    * npm install
+    * pm2 restart all
+
+# note
+  * if you using docker u can run with cluster mode and monit the application with pm2 monit
 
 # HOW TO RUN TES ?
   * just enter mocha

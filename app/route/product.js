@@ -29,7 +29,6 @@ module.exports = function(app) {
             })
         })
         .delete(function(req, res){
-            console.log(req.body)
             Product.remove({sku:req.body.sku},function(err){
                 if (err) res.status(500).send({ message: err.message });
                 res.send({ message: 'success' });

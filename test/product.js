@@ -69,5 +69,40 @@ describe('Product', function() {
             });
     });
 
-
+    it('should list ALL product on /product GET', function(done) {
+        chai.request(server)
+            .get('/product')
+            .end(function(err, res){
+                res.should.have.status(200);
+                res.should.be.json;
+                res.body.should.be.a('object');
+                done();
+            });
+    });
+    it('should update a SINGLE product on /product PUT', function(done) {
+        chai.request(server)
+            .get('/product')
+            .end(function(err, res){
+                chai.request(server)
+                    .put('/product')
+                    .send({'sku' : '01229822','quantity': 2})
+                    .end(function(error, response){
+                        response.should.have.status(200);
+                        response.should.be.json;
+                        response.body.should.be.a('object');
+                        done();
+                    });
+            });
+    });
+    it('should delete a SINGLE product on /product/ DELETE', function(done) {
+        chai.request(server)
+            .delete('/product/')
+            .send({'sku' : '01229822'})
+            .end(function(error, response){
+                response.should.have.status(200);
+                response.should.be.json;
+                response.body.should.be.a('object');
+                done();
+            });
+    });
 });

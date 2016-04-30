@@ -23,13 +23,17 @@ module.exports = function(app) {
             })
         })
         .put(function(req, res) {
-            /*Product.update({_id:req.body.id}, { $set: { status: 'cancel' }},{upsert:true}, function (err,update) {
+            Product.update({sku:req.body.sku}, { $set: { quantity: req.body.quantity }},{upsert:true}, function (err,update) {
                 if (err) res.status(500).send({ message: err.message });
                 res.send({ message: 'success' });
-            })*/
+            })
         })
         .delete(function(req, res){
-
+            console.log(req.body)
+            Product.remove({sku:req.body.sku},function(err){
+                if (err) res.status(500).send({ message: err.message });
+                res.send({ message: 'success' });
+            })
         })
         .post(function(req, res){
             if(!_.isEmpty(req.body)){
@@ -42,6 +46,4 @@ module.exports = function(app) {
                 res.status(400).send({ message: 'body is empty' });
             }
         })
-
-
 }

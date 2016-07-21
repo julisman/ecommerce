@@ -1,12 +1,12 @@
 /*lib*/
 
-var moment = require('moment');
-var request = require('request');
-var _ = require('underscore');
-var async = require("async");
+const moment = require('moment');
+const request = require('request');
+const _ = require('underscore');
+const async = require("async");
 
 /*model*/
-var Product = require('./../models/product');
+const Product = require('./../models/product');
 
 module.exports = function(app) {
 

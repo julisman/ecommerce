@@ -2,17 +2,17 @@
 * author : agung.julisman@yahoo.com
 * */
 
-var bodyParser = require('body-parser')
-var cors = require('cors')
-var express = require('express')
-var logger = require('morgan')
-var mongoose = require('mongoose')
+const bodyParser = require('body-parser')
+const cors = require('cors')
+const express = require('express')
+const logger = require('morgan')
+const mongoose = require('mongoose')
 
 require('dotenv').load()
-var app = express()
+const app = express()
 
 /*mongodb*/
-var mongoUrl = 'mongodb://'+process.env.MONGODB_HOST+':'+process.env.MONGODB_PORT+'/'+(app.settings.env === 'test' ? process.env.MONGODB_DOCUMENT_TEST : process.env.MONGODB_DOCUMENT )
+const mongoUrl = 'mongodb://'+process.env.MONGODB_HOST+':'+process.env.MONGODB_PORT+'/'+(app.settings.env === 'test' ? process.env.MONGODB_DOCUMENT_TEST : process.env.MONGODB_DOCUMENT )
 mongoose.connect(mongoUrl, function(err){
     if(err) throw err
 });

@@ -17,5 +17,5 @@
 # note
   * if you using docker u can run with cluster mode and monit the application with pm2 monit
 
-# HOW TO RUN TES ?
+# HOW TO RUN TEST ?
   * just enter mocha

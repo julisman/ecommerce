@@ -3,19 +3,21 @@ api:
   container_name: ecommerce
   image: secret06/nodejs:3.0
   command : pm2 start app.js --no-daemon --watch -i max --max-memory-restart 3G --merge-logs --log-date-format="YYYY-MM-DD HH:mm Z"
-  restart: always
+  restart: unless-stopped
   ports:
     - "8085:8085"
   volumes:
     - .:/app
-  links:
-      - mongodbs
+  external_links:
+    - mongodb
+  #links:
+      #- mongodbs
 
-mongodbs:
-  container_name: mongodbecommerce
-  restart: always
-  volumes:
-    - /var/test:/data/db
-  image: mongo:3.2
+#mongodbs:
+ # container_name: mongodbecommerce
+  #restart: always
+  #volumes:
+   # - /var/test:/data/db
+  #image: mongo:3.2
  # ports:
   #  - "27017:27017"

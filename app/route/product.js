@@ -15,6 +15,56 @@ module.exports = function(app) {
      | END POINT product
      |--------------------------------------------------------------------------
      */
+    /**
+     * @swagger
+     * /product:
+     *   get:
+     *     tags:
+     *       - Product
+     *     description: get product
+     *     produces:
+     *       - application/json
+     *     responses:
+     *       200:
+     *         description: Successfully fetch
+     *   post:
+     *     tags:
+     *       - product
+     *     description: add product
+     *     produces:
+     *       - application/json
+     *     parameters:
+     *       - name: body
+     *         description: Product Object
+     *         in: body
+     *         required: true
+     *         schema: {
+     *              "type": "object",
+     *              "required": [
+     *                  "sku",
+     *                  "title",
+     *                  "description"
+     *              ],
+     *              "properties": {
+     *                  "sku": {
+     *                      "type": "string",
+     *                      "example": "2222"
+     *                  },
+     *                  "title": {
+     *                      "type": "string",
+     *                      "example": "new product"
+     *                  },
+     *                  "description": {
+     *                      "type": "string",
+     *                      "example": "product for healthy"
+     *                  }
+     *              }
+     *          }
+     *     responses:
+     *       200:
+     *         description: Successfully created
+     */
+
     app.route('/product')
         .get(function(req, res) {
             Product.find({}, function(err,doc){
@@ -34,6 +84,7 @@ module.exports = function(app) {
                 res.send({ message: 'success' });
             })
         })
+
         .post(function(req, res){
             if(!_.isEmpty(req.body)){
                 var products = new Product(req.body);

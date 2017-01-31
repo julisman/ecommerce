@@ -27,7 +27,7 @@ let options = {
     // import swaggerDefinitions
     swaggerDefinition: swaggerDefinition,
     // path to the API docs
-    apis: ['./app/routes/*.js']
+    apis: ['./app/route/*.js']
 }
 
 // initialize swagger-jsdoc
@@ -37,10 +37,8 @@ app.get('/api/v1/swagger.json', (req, res) => {
     res.setHeader('Content-Type', 'application/json')
     res.send(swaggerSpec)
 })
+
 app.use('/api/v1/api-docs', express.static('./api-docs'))
-
-
-
 
 /*mongodb*/
 const mongoUrl = 'mongodb://'+process.env.MONGODB_HOST+':'+process.env.MONGODB_PORT+'/'+(app.settings.env === 'test' ? process.env.MONGODB_DOCUMENT_TEST : process.env.MONGODB_DOCUMENT )

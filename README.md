@@ -23,3 +23,11 @@ microservice application ecommerce
 # HOW TO RUN TEST ?
 
     just enter mocha
+
+
+## COVERAGE
+
+    npm i -g  http-server
+    http-server ./artifacts/coverage/lcov-report/ -p 9090
+
+This will start http-server. Just open http://localhost:9090.

@@ -1,6 +1,8 @@
 /*lib*/
 module.exports = function(app) {
-    app.get('/', function(req, res) {
-        res.send('Api is running!');
-    });
+    app.get('/', (req, res) => {
+        res.send({
+            status: 'Api is running!'
+        })
+    })
 }

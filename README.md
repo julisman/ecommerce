@@ -1,5 +1,5 @@
 # api ecommerce
-tes jenkins
+test jenkins
 microservice application ecommerce
 
 ## HOW TO RUN ?

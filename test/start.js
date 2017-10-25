@@ -23,7 +23,7 @@ describe('Start Up', () => {
               res.should.be.json
               res.body.should.be.a('object')
               res.body.should.have.property('status')
-              res.body.status.should.equal('Api is running!!!')
+              res.body.status.should.equal('Api is running!')
               done()
             })
   })

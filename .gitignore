@@ -1,9 +1,8 @@
 node_modules
-env.json
 .env
 .idea
 *~
 /.idea
 /ssl
 /db
-docker-compose.yml
+artifacts/
